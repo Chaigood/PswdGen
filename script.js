@@ -12,12 +12,22 @@ var specialVerify;
 function SetLength(){
   pswdLength = prompt("How many characters do you want in your password?");
 
-    if (pswdLength<8 || pswdLength>128){
-      alert("The password must be between 8-128 characters...try again");
+    if (pswdLength<8 || pswdLength>128 || (isNaN)(pswdLength)) {
+      alert("The password length must be between 8-128 characters...try again");
     }
-    else function SetUpperCase(){
-
+    else{
+      alert("Answer the next 3 questions to generate a password");
     }
+    // return pswdLength;
+}
+function SetUpperCase(){
+  upperCaseVerify = prompt("Do you want uppercase letters in the password?");
+}
+function SetNumber(){
+  numberVerify = prompt("Do you want numbers in the password?");
+}
+function SetSpecial(){
+  specialVerify = prompt("Do you want special characters in the password?");
 }
 
 function generatePassword(){
@@ -30,14 +40,14 @@ function generatePassword(){
   SetSpecial();
   console.log(specialVerify);
 var characters = lowerCase;
-// var password = "";
-if (uppercaseVerify && numberVerify && specialVerify){
+var password = "";
+if (upperCaseVerify && numberVerify && specialVerify){
   characters += upperCase + number + specialChar;
-}else if (uppercaseVerify && numberVerify){
+}else if (upperCaseVerify && numberVerify){
   characters += upperCase + number;
 }else if (numberVerify && specialVerify){
   characters += number + specialChar;
-}else if (uppercaseVerify && specialVerify){
+}else if (upperCaseVerify && specialVerify){
   characters += upperCase + specialChar;
 }else if (upperCaseVerify){
   characters += upperCase;
