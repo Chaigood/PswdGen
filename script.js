@@ -14,11 +14,12 @@ function SetLength(){
 
     if (pswdLength<8 || pswdLength>128 || (isNaN)(pswdLength)) {
       alert("The password length must be between 8-128 characters...try again");
+      SetLength();
     }
     else{
       alert("Answer the next 3 questions to generate a password");
     }
-    // return pswdLength;
+    return pswdLength;
 }
 function SetUpperCase(){
   upperCaseVerify = prompt("Do you want uppercase letters in the password?");
@@ -63,8 +64,6 @@ if (upperCaseVerify && numberVerify && specialVerify){
   }
   return password;
 }
-
-
 
 // Write password to the #password input
 function writePassword() {
